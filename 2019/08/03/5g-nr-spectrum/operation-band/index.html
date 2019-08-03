@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/mynote/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/mynote/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/mynote/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/mynote/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/mynote/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/mynote/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/mynote/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="5G NR的空口技术 5G NR频谱介绍 5G可操作频段（Operating bands） 5G NR根据频率定了两种频率范围（FR）类型，其中FR1（410 - 7125 MHz），FR2（24.25 - 52.6 GHz）。FR1即通常所讲的5G Sub-6GHz频段，FR2则是5G毫米波频段。 5G NR的频段类型根据双工模式（duplex mode）划分为FDD、TDD之外，还引入了辅助下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5G NR的空口大书">
+<meta property="og:url" content="http://yoursite.com/mynote/2019/08/03/5g-nr-spectrum/operation-band/index.html">
+<meta property="og:site_name" content="知行合一书斋">
+<meta property="og:description" content="5G NR的空口技术 5G NR频谱介绍 5G可操作频段（Operating bands） 5G NR根据频率定了两种频率范围（FR）类型，其中FR1（410 - 7125 MHz），FR2（24.25 - 52.6 GHz）。FR1即通常所讲的5G Sub-6GHz频段，FR2则是5G毫米波频段。 5G NR的频段类型根据双工模式（duplex mode）划分为FDD、TDD之外，还引入了辅助下">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/mynote/2019/08/03/5g-nr-spectrum/operation-band/5g-nr-spectrum-fr1-band.png">
+<meta property="og:image" content="http://yoursite.com/mynote/2019/08/03/5g-nr-spectrum/operation-band/5g-nr-spectrum-fr2-band.png">
+<meta property="og:image" content="http://yoursite.com/mynote/2019/08/03/5g-nr-spectrum/operation-band/5g-nr-spectrum-sul.png">
+<meta property="og:updated_time" content="2019-08-03T04:05:18.977Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="5G NR的空口大书">
+<meta name="twitter:description" content="5G NR的空口技术 5G NR频谱介绍 5G可操作频段（Operating bands） 5G NR根据频率定了两种频率范围（FR）类型，其中FR1（410 - 7125 MHz），FR2（24.25 - 52.6 GHz）。FR1即通常所讲的5G Sub-6GHz频段，FR2则是5G毫米波频段。 5G NR的频段类型根据双工模式（duplex mode）划分为FDD、TDD之外，还引入了辅助下">
+<meta name="twitter:image" content="http://yoursite.com/mynote/2019/08/03/5g-nr-spectrum/operation-band/5g-nr-spectrum-fr1-band.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/mynote/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/mynote/2019/08/03/5g-nr-spectrum/operation-band/">
+
+
+
+
+
+  <title>5G NR的空口大书 | 知行合一书斋</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/mynote/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">知行合一书斋</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/mynote/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/mynote/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/mynote/mynote/2019/08/03/5g-nr-spectrum/operation-band/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王飞宇（forest wang）">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mynote/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知行合一书斋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">5G NR的空口大书</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-03T00:16:51+08:00">
+                2019-08-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="5g-nr的空口技术">5G NR的空口技术</h1>
+<h2 id="5g-nr频谱介绍">5G NR频谱介绍</h2>
+<h3 id="5g可操作频段-operating-bands">5G可操作频段（Operating bands）</h3>
+<p>5G NR根据频率定了两种频率范围（FR）类型，其中FR1（410 - 7125 MHz），FR2（24.25 - 52.6 GHz）。FR1即通常所讲的5G Sub-6GHz频段，FR2则是5G毫米波频段。</p>
+<p>5G NR的频段类型根据双工模式（duplex mode）划分为FDD、TDD之外，还引入了辅助下行（SDL）和辅助上行（SUL）。</p>
+<img src="/mynote/2019/08/03/5g-nr-spectrum/operation-band/5g-nr-spectrum-fr1-band.png" title="3gpp支持的FR1频段">
+<img src="/mynote/2019/08/03/5g-nr-spectrum/operation-band/5g-nr-spectrum-fr2-band.png" title="3gpp支持的FR2频段">
+<p>说明：</p>
+<ol>
+<li>在3GPP TS38.104-5.2中，定义了5G NR所支持的频段，见上表。</li>
+<li>操作频段（Operating Band）就是5G NR可操作的频率范围。</li>
+<li>5G NR的频段号以“n”开头，这与LTE的频段号以“B”开头不同。</li>
+</ol>
+<h3 id="辅助上行和下行">辅助上行和下行</h3>
+<img src="/mynote/2019/08/03/5g-nr-spectrum/operation-band/5g-nr-spectrum-sul.png" title="SUL">
+<p>说明：</p>
+<ol>
+<li>
+<p>SUL（辅助上行）使用一个低的频带作为辅助上行载波，以弥补高频的低覆盖特性，这样可以有效地提升5G NR的上行覆盖，增强网络容量和用户体验。</p>
+</li>
+<li>
+<p>一个下行与两个上行载波配对，这样的配置与LTE的CA（载波聚合）有点类似。不同的是，UE不可以<strong>同时</strong>在SUL和UL载波传输数据。</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/mynote/2019/07/31/home/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/mynote/uploads/avatar.jpg" alt="王飞宇（forest wang）">
+            
+              <p class="site-author-name" itemprop="name">王飞宇（forest wang）</p>
+              <p class="site-description motion-element" itemprop="description">我心中好的软件架构师应该是：写得了代码，见得了客户; 谈的起需求，带的起团队; 脚踏实地，也能抬头看路; 标准看起来很高，核心就在“知行合一”。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/mynote/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#5g-nr的空口技术"><span class="nav-number">1.</span> <span class="nav-text">5G NR的空口技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5g-nr频谱介绍"><span class="nav-number">1.1.</span> <span class="nav-text">5G NR频谱介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5g可操作频段-operating-bands"><span class="nav-number">1.1.1.</span> <span class="nav-text">5G可操作频段（Operating bands）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#辅助上行和下行"><span class="nav-number">1.1.2.</span> <span class="nav-text">辅助上行和下行</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王飞宇（forest wang）</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/mynote/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/mynote/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/mynote/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/mynote/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/mynote/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/mynote/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/mynote/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/mynote/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/mynote/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/mynote/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/mynote/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/mynote/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/mynote/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
